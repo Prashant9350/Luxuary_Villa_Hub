@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings - Luxury Villa Hub</title>
+    <!-- Google Fonts for typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FontAwesome for fallback icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Specific Styles for Property Listings Hybrid Page */
+        :root {
+            --accent-black: #000000;
+            --divider-grey: #EEEEEE;
+            --pure-white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--pure-white);
+        }
+
+        /* Section 1: Hero Partnership */
+        .partnership-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: url('assets/image.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+        }
+
+        .partnership-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            max-width: 800px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .badge-item i {
+            font-size: 1.5rem;
+        }
+
+        /* Section 2: Villa Listing Grid */
+        .listing-grid-section {
+            padding: 60px 0;
+            background-color: var(--pure-white);
+        }
+
+        .listing-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .listing-card {
+            display: flex;
+            background: var(--pure-white);
+            border-bottom: 1px solid var(--divider-grey);
+            padding-bottom: 60px;
+            gap: 40px;
+        }
+
+        .listing-image-col {
+            flex: 1.2;
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .listing-image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .listing-card:hover .listing-image-col img {
+            transform: scale(1.05);
+        }
+
+        .ribbon-tag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--accent-black);
+            color: var(--pure-white);
+            padding: 8px 15px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .listing-content-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .listing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .listing-title {
+            font-size: 1.8rem;
+            color: var(--accent-black);
+            margin: 0;
+        }
+
+        .quote-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: underline;
+            color: var(--accent-black);
+            text-transform: uppercase;
+        }
+
+        .listing-loc {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            margin-bottom: 20px;
+        }
+
+        .stats-row {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .listing-desc {
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: 4.8rem;
+        }
+
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .amenity-item {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .listing-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .compare-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-details {
+            background: var(--accent-black);
+            color: var(--pure-white);
+            padding: 12px 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-details:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .listing-card {
+                flex-direction: column;
+                gap: 20px;
+                padding-bottom: 40px;
+            }
+            
+            .listing-image-col {
+                width: 100%;
+            }
+            
+            .listing-content-col {
+                gap: 15px;
+            }
+            
+            .listing-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .btn-details {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Section 3: Testimonial Carousel */
+        .transparency-section {
+            padding: 60px 0;
+            background-color: var(--pure-white);
+            position: relative;
+        }
+
+        .transparency-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .transparency-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .transparency-subtitle {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            color: var(--text-grey);
+            text-align: center;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 0;
+            right: 5%;
+            display: flex;
+            gap: 10px;
+        }
+
+        .ctrl-btn {
+            background: transparent;
+            border: 1px solid var(--divider-grey);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ctrl-btn:hover {
+            background: var(--accent-black);
+            color: var(--pure-white);
+            border-color: var(--accent-black);
+        }
+
+        .testimonial-carousel {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 20px;
+        }
+
+        .testimonial-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            min-width: calc(33.333% - 20px);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .testimonial-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-quote {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--accent-black);
+            font-size: 1rem;
+        }
+
+        .author-loc {
+            color: var(--text-grey);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .testimonial-card {
+                min-width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .listing-card {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .listing-image-col {
+                width: 100%;
+            }
+
+            .testimonial-card {
+                min-width: 100%;
+            }
+
+            .carousel-controls {
+                position: static;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            .hero-headline {
+                font-size: 2.2rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1: Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <div class="logo-col">
+                <a href="index.html"><img src="assets/Luxury_Villa_Hub_Logo.png" alt="Luxury Villa Hub Logo"
+                        class="site-logo"></a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html#property-listings">Property Listings</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="index.html#contact-us">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="action-col">
+                <div class="nav-dropdown">
+                    <button class="btn-solid-gold hidden-mobile fw-bold">Get in Touch <i
+                            class="fa-solid fa-chevron-down" style="font-size:12px; margin-left:5px;"></i></button>
+                    <div class="nav-dropdown-content">
+                        <a href="tel:+918108048808"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>
+                            Call</br>+91 81080 48808</a>
+                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                                style="margin-right:8px; color:#25D366;"></i> WhatsApp</a>
+                    </div>
+                </div>
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="property_listings.html">Property Listings</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="index.html#contact-us">Contact Us</a></li>
+                <li class="mobile-dropdown-wrapper">
+                    <button class="btn-solid-gold fw-bold" id="mobileGetInTouch"
+                        style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;">Get
+                        in Touch <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content" id="mobileContactDropdown">
+                        <a href="tel:+918108048808"><i class="fa-solid fa-phone"></i> Call: +91 81080 48808</a>
+                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                                style="color:#25D366;"></i> WhatsApp</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- SECTION 1: Hero Partnership Header -->
+    <section class="partnership-hero">
+        <div class="hero-container">
+            <h3 class="hero-headline">Maximize your property's earning potential with Luxury Villa Hub: Maharashtra's
+                biggest and most trusted brand</h3>
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Brand of the year</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fa-solid fa-house-circle-check"></i>
+                    <span>1000+ Handpicked Properties</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Villa Listing Grid -->
+    <section class="listing-grid-section">
+        <div class="listing-container">
+
+            <!-- Listing Item 1 -->
+            <div class="listing-card">
+                <div class="listing-image-col">
+                    <span class="ribbon-tag">Premium Collection</span>
+                    <a href="2_1bhk_lonawala.html"><img src="assets/02_1BHK_Lonawala/02_01.jpeg"
+                            alt="1BHK In Lonavala"></a>
+                </div>
+                <div class="listing-content-col">
+                    <div>
+                        <div class="listing-header">
+                            <h2 class="listing-title">1BHK In Lonavala</h2>
+                            <a href="2_1bhk_lonawala.html" class="quote-link">Request for Quote</a>
+                        </div>
+                        <p class="listing-loc">Lonavala, Maharashtra</p>
+                        <p class="stats-row">Bedroom: 1, Bathrooms: 1, Guests: 4</p>
+                        <p class="listing-desc">A masterpiece of contemporary architecture, 1BHK In Lonavala offers a
+                            serene escape with panoramic hill views and a private infinity pool.</p>
+                        <div class="amenities-list">
+                            <span class="amenity-item"><i class="fa-solid fa-umbrella-beach"></i> Beach Front</span>
+                            <span class="amenity-item"><i class="fa-solid fa-film"></i> Cinema</span>
+                            <span class="amenity-item"><i class="fa-solid fa-dumbbell"></i> Fitness room</span>
+                            <span class="amenity-item"><i class="fa-solid fa-wifi"></i> Free WiFi</span>
+                        </div>
+                    </div>
+                    <div class="listing-footer">
+                        <label class="compare-box">
+                            <input type="checkbox"> COMPARE
+                        </label>
+                        <button class="btn-details">Book Now ></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Item 2 -->
+            <div class="listing-card">
+                <div class="listing-image-col">
+                    <span class="ribbon-tag">Premium Collection</span>
+                    <a href="4_4bhk_lonawala.html"><img src="assets/04_4bhk_Lonawala/04_01.jpeg"
+                            alt="The Azure Retreat">
+                    </a>
+                </div>
+                <div class="listing-content-col">
+                    <div>
+                        <div class="listing-header">
+                            <h2 class="listing-title">4BHK In Lonavala</h2>
+                            <a href="4_4bhk_lonawala.html" class="quote-link">Request for Quote</a>
+                        </div>
+                        <p class="listing-loc">Lonavala, Maharashtra</p>
+                        <p class="stats-row">Bedroom: 4, Bathrooms: 4, Guests: 12</p>
+                        <p class="listing-desc">Experience the ultimate in luxury living. This villa combines modern
+                            charm with modern amenities for a perfect weekend getaway.</p>
+                        <div class="amenities-list">
+                            <span class="amenity-item"><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
+                            <span class="amenity-item"><i class="fa-solid fa-utensils"></i> Private Chef</span>
+                            <span class="amenity-item"><i class="fa-solid fa-mountain-sun"></i> Mountain View</span>
+                        </div>
+                    </div>
+                    <div class="listing-footer">
+                        <label class="compare-box">
+                            <input type="checkbox"> COMPARE
+                        </label>
+                        <button class="btn-details">Book Now ></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Item 3 -->
+            <div class="listing-card">
+                <div class="listing-image-col">
+                    <span class="ribbon-tag">Premium Collection</span>
+                    <a href="5_3bhk_Igatpuri.html"><img src="assets/05_3bhk_Igatpuri/05_01.jpeg"
+                            alt="The Azure Retreat">
+                    </a>
+                </div>
+                <div class="listing-content-col">
+                    <div>
+                        <div class="listing-header">
+                            <h2 class="listing-title">3BHK In Igatpuri</h2>
+                            <a href="5_3bhk_Igatpuri.html" class="quote-link">Request for Quote</a>
+                        </div>
+                        <p class="listing-loc">Igatpuri, Maharashtra</p>
+                        <p class="stats-row">Bedroom: 3, Bathrooms: 3, Guests: 8</p>
+                        <p class="listing-desc">A tranquil escape nestled amidst mist-laden mountains, this 3BHK villa
+                            in Igatpuri offers a perfect blend of nature and luxury.</p>
+                        <div class="amenities-list">
+                            <span class="amenity-item"><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
+                            <span class="amenity-item"><i class="fa-solid fa-utensils"></i> Private Chef</span>
+                            <span class="amenity-item"><i class="fa-solid fa-mountain-sun"></i> Mountain View</span>
+                        </div>
+                    </div>
+                    <div class="listing-footer">
+                        <label class="compare-box">
+                            <input type="checkbox"> COMPARE
+                        </label>
+                        <button class="btn-details">Book Now ></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Item 4 -->
+            <div class="listing-card">
+                <div class="listing-image-col">
+                    <span class="ribbon-tag">Premium Collection</span>
+                    <a href="1_1bhk_lonawala.html"><img src="assets/Silken_Retreat/SR_01.jpeg" alt="1BHK In Lonavala">
+                    </a>
+                </div>
+                <div class="listing-content-col">
+                    <div>
+                        <div class="listing-header">
+                            <h2 class="listing-title">1BHK In Lonavala</h2>
+                            <a href="1_1bhk_lonawala.html" class="quote-link">Request for Quote</a>
+                        </div>
+                        <p class="listing-loc">Lonavala, Maharashtra</p>
+                        <p class="stats-row">Bedroom: 1, Bathrooms: 1, Guests: 2</p>
+                        <p class="listing-desc">Experience the ultimate in comfort with this 1BHK villa in Lonavala,
+                            offering a perfect blend of modern amenities and a peaceful ambiance.</p>
+                        <div class="amenities-list">
+                            <span class="amenity-item"><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
+                            <span class="amenity-item"><i class="fa-solid fa-utensils"></i> Private Chef</span>
+                            <span class="amenity-item"><i class="fa-solid fa-mountain-sun"></i> Mountain View</span>
+                        </div>
+                    </div>
+                    <div class="listing-footer">
+                        <label class="compare-box">
+                            <input type="checkbox"> COMPARE
+                        </label>
+                        <button class="btn-details">Book Now ></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Item 5 -->
+            <div class="listing-card">
+                <div class="listing-image-col">
+                    <span class="ribbon-tag">Premium Collection</span>
+                    <a href="3_4bhk_lonawala.html"><img src="assets/03_4bhk_Lonawala/03_01.jpeg" alt="4BHK In Lonavala">
+                </div>
+                <div class="listing-content-col">
+                    <div>
+                        <div class="listing-header">
+                            <h2 class="listing-title">4BHK In Lonavala</h2>
+                            <a href="3_4bhk_lonawala.html" class="quote-link">Request for Quote</a>
+                        </div>
+                        <p class="listing-loc">Lonavala, Maharashtra</p>
+                        <p class="stats-row">Bedroom: 4, Bathrooms: 4, Guests: 10</p>
+                        <p class="listing-desc">Nestled amidst the tranquil hills of Lonavala, this 4BHK villa offers a
+                            luxurious retreat with stunning views and modern amenities, ensuring a memorable stay.</p>
+                        <div class="amenities-list">
+                            <span class="amenity-item"><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
+                            <span class="amenity-item"><i class="fa-solid fa-utensils"></i> Private Chef</span>
+                            <span class="amenity-item"><i class="fa-solid fa-mountain-sun"></i> Mountain View</span>
+                        </div>
+                    </div>
+                    <div class="listing-footer">
+                        <label class="compare-box">
+                            <input type="checkbox"> COMPARE
+                        </label>
+                        <button class="btn-details">Book Now ></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listing Item 6 -->
+            <div class="listing-card">
+                <div class="listing-image-col">
+                    <span class="ribbon-tag">Premium Collection</span>
+                    <a href="6_4bhk_lonawala.html"><img src="assets/06_4bhk_Lonavala/06_01.jpeg" alt="4BHK In Lonavala">
+                    </a>
+                </div>
+                <div class="listing-content-col">
+                    <div>
+                        <div class="listing-header">
+                            <h2 class="listing-title">4BHK In Lonavala</h2>
+                            <a href="6_4bhk_lonawala.html" class="quote-link">Request for Quote</a>
+                        </div>
+                        <p class="listing-loc">Lonavala, Maharashtra</p>
+                        <p class="stats-row">Bedroom: 4, Bathrooms: 4, Guests: 12</p>
+                        <p class="listing-desc">Perched amidst the serene landscape of Lonavala, this 4BHK villa
+                            promises a luxurious escape. Step into a world of comfort with spacious living areas, modern
+                            amenities, and breathtaking views.</p>
+                        <div class="amenities-list">
+                            <span class="amenity-item"><i class="fa-solid fa-water-ladder"></i> Private Pool</span>
+                            <span class="amenity-item"><i class="fa-solid fa-utensils"></i> Private Chef</span>
+                            <span class="amenity-item"><i class="fa-solid fa-mountain-sun"></i> Mountain View</span>
+                        </div>
+                    </div>
+                    <div class="listing-footer">
+                        <label class="compare-box">
+                            <input type="checkbox"> COMPARE
+                        </label>
+                        <button class="btn-details">Book Now ></button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: Testimonial Carousel -->
+    <section class="transparency-section">
+        <div class="container">
+            <div class="transparency-header">
+                <h2 class="transparency-title">Transparency is key</h2>
+                <p class="transparency-subtitle">No hidden costs, no unexpected surprises — our commitment to
+                    transparency truly sets us apart.</p>
+                <div class="carousel-controls">
+                    <button class="ctrl-btn" id="prevBtn"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="ctrl-btn" id="nextBtn"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="testimonial-carousel" id="testimonialSlider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="assets/05_3bhk_Igatpuri/05_12.jpeg" alt="Villa Owner">
+                    </div>
+                    <p class="testimonial-quote">"Partnering with Luxury Villa Hub has been the best decision for my
+                        property. Their transparency in bookings and high-quality guest management is unmatched."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Swapnil Pisal</span>
+                        <span class="author-loc">Client, 3bhk Igatpuri</span>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="assets/02_1BHK_Lonawala/02_07.jpeg" alt="Villa Owner">
+                    </div>
+                    <p class="testimonial-quote">"The team at LVH treats every property as their own. My villa's revenue
+                        has increased significantly since I joined Maharashtra's most trusted brand."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Mehul Achari</span>
+                        <span class="author-loc">Client, 1bhk Lonavala</span>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="assets/04_4bhk_Lonawala/04_10.jpeg" alt="Villa Owner">
+                    </div>
+                    <p class="testimonial-quote">"I appreciate how they handle everything from marketing to maintenance
+                        inquiries. It truly is a hands-free investment experience for me."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Sanket Shinde</span>
+                        <span class="author-loc">Client, 4bhk Lonavala</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html"><img src="assets/Luxury_Villa_Hub_Logo.png" alt="Logo" class="footer-logo"></a>
+                <p>Luxury Villa Hub offers premium villa experiences tailored for those who appreciate the finest things
+                    in life. Unwind in absolute luxury.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#property-listings">Property Listings</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="index.html#contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-phone"></i> +91 81080 48808</p>
+                <p><i class="fa-solid fa-envelope"></i> hello@luxuryvillahub.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Thane West, Mumbai</p>
+            </div>
+            <div class="footer-col social-col">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <p>&copy; 2026 Luxury Villa Hub. All Rights Reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Side Buttons for Call & WhatsApp -->
+    <div class="fixed-side-actions">
+        <a href="tel:+918108048808" class="side-btn call-btn" title="Call Us">
+            <img src="assets/Call.png" alt="Call"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fa-solid fa-phone fallback-side-icon" style="display:none;"></i>
+        </a>
+        <a href="https://wa.me/918108048808" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i
+            class="fa-solid fa-chevron-up"></i></button>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Testimonial Carousel Logic
+        const slider = document.getElementById('testimonialSlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: slider.offsetWidth / 3, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -slider.offsetWidth / 3, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+
+</html>

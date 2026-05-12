@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Villa Hub</title>
+    <!-- Google Fonts for typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FontAwesome for fallback icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 40vh !important;
+                min-height: 300px !important;
+            }
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+            .mission-vision-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+            .about-intro-section {
+                padding: 30px 20px !important;
+            }
+            .about-intro-section p {
+                font-size: 1rem !important;
+            }
+            .collection-showcase-section h2 {
+                font-size: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1: Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <div class="logo-col">
+                <a href="index.html"><img src="assets/Luxury_Villa_Hub_Logo.png" alt="Luxury Villa Hub Logo"
+                        class="site-logo"></a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="property_listings.html">Property Listings</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="action-col">
+                <div class="nav-dropdown">
+                    <button class="btn-solid-gold hidden-mobile fw-bold">Get in Touch <i
+                            class="fa-solid fa-chevron-down" style="font-size:12px; margin-left:5px;"></i></button>
+                    <div class="nav-dropdown-content">
+                        <a href="tel:+918108048808"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>
+                            Call</br>+91 81080 48808</a>
+                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                                style="margin-right:8px; color:#25D366;"></i> WhatsApp</a>
+                    </div>
+                </div>
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="property_listings.html">Property Listings</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+                <li class="mobile-dropdown-wrapper">
+                    <button class="btn-solid-gold fw-bold" id="mobileGetInTouch"
+                        style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;">Get
+                        in Touch <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content" id="mobileContactDropdown">
+                        <a href="tel:+918108048808"><i class="fa-solid fa-phone"></i> Call: +91 81080 48808</a>
+                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                                style="color:#25D366;"></i> WhatsApp</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- SECTION 1 (Part 2): Hero -->
+    <section class="hero-section" style="background-image: url('assets/LVH_83.jpeg'); height: 60vh; min-height: 400px;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" style="font-family: 'Playfair Display', serif; font-weight: 700;">About Us</h1>
+            <p style="font-size: 1.5rem; font-weight: 300; font-family: 'Montserrat', sans-serif;">What We Do</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Introduction -->
+    <section class="about-intro-section" style="background-color: #FFFFFF; padding: 50px 20px;">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <p
+                style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; margin-bottom: 25px; color: #333333; font-size: 1.1rem;">
+                Luxury Villa Hub is the premier destination for discerning travelers seeking unparalleled comfort and
+                exclusivity. We curate a handpicked selection of the world's most exquisite properties, ensuring that
+                every stay is nothing short of extraordinary.
+            </p>
+            <p
+                style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #333333; font-size: 1.1rem;">
+                Our commitment to excellence extends beyond our stunning portfolio. We provide personalized concierge
+                services, tailoring every aspect of your experience to your unique preferences. From private chefs and
+                bespoke itineraries to seamless logistics, we orchestrate the perfect getaway, allowing you to simply
+                relax and indulge.
+            </p>
+        </div>
+    </section>
+
+    <section class="mission-vision-section" style="background-color: #F9F9F9; padding: 50px 20px;">
+        <div class="container mission-vision-grid"
+            style="max-width: 1100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px;">
+            <div class="mission-col"
+                style="background: #FFFFFF; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                <h2
+                    style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; color: #000000; letter-spacing: 2px; font-size: 1.5rem;">
+                    Our Mission</h2>
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; margin-bottom: 15px; color: #444444;">
+                    To redefine luxury hospitality by delivering bespoke villa experiences that exceed the expectations
+                    of the most discerning travelers. We strive to create unforgettable moments through meticulous
+                    attention to detail and unwavering dedication to service.
+                </p>
+                <p style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444;">
+                    We are passionate about connecting our guests with extraordinary properties that reflect the unique
+                    charm and beauty of their destinations, fostering a deep appreciation for the art of luxurious
+                    living.
+                </p>
+            </div>
+            <div class="vision-col"
+                style="background: #FFFFFF; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                <h2
+                    style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; color: #000000; letter-spacing: 2px; font-size: 1.5rem;">
+                    Our Vision</h2>
+                <p
+                    style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; margin-bottom: 15px; color: #444444;">
+                    To be the globally recognized leader in luxury villa rentals, setting the standard for excellence,
+                    innovation, and personalized service in the high-end hospitality industry.
+                </p>
+                <p style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444;">
+                    We envision a world where every journey is a masterpiece, crafted with care and passion, and where
+                    Luxury Villa Hub is synonymous with the ultimate expression of refined travel and lifestyle.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Collection Showcase -->
+    <section class="collection-showcase-section" style="background-color: #F4F4F4; padding: 50px 20px;">
+        <div class="container" style="max-width: 900px; text-align: center;">
+            <h2
+                style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 40px; color: #000000; letter-spacing: 2px; font-size: 2rem;">
+                Finest Villa Rental Collection</h2>
+            <p
+                style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; margin-bottom: 20px; color: #444444; font-size: 1.1rem;">
+                Our portfolio is a meticulously curated collection of the world's most spectacular villas. Each property
+                is hand-selected based on rigorous criteria, ensuring breathtaking design, exceptional amenities, and
+                unparalleled locations.
+            </p>
+            <p
+                style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444; font-size: 1.1rem;">
+                From serene beachfront retreats to majestic mountain chalets, our villas offer a sanctuary of privacy
+                and indulgence. We partner exclusively with the finest estates to guarantee an experience that is
+                consistently flawless and undeniably luxurious.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Section 6: Media & Features -->
+    <section class="media-features-section" style="background-color: #FFFFFF; padding: 50px 20px;">
+        <div class="container" style="max-width: 1100px;">
+            <div
+                style="margin-bottom: 40px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="assets/LVH_27.jpeg" alt="Luxury Sun Loungers"
+                    style="width: 100%; height: auto; object-fit: cover; aspect-ratio: 21/9;">
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+                <!-- Feature 1 -->
+                <div style="display: flex; align-items: flex-start; gap: 20px;">
+                    <div style="padding-top: 5px;">
+                        <img src="assets/local_experience.png" alt="Icon"
+                            style="width: 40px; height: 40px; object-fit: contain;">
+                    </div>
+                    <div>
+                        <h3
+                            style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; color: #000000; letter-spacing: 1px; font-size: 1.3rem;">
+                            Best Direct Rates Guarantee</h3>
+                        <p
+                            style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444; font-size: 0.95rem;">
+                            The Luxury Signature acts as the Direct Representative of most villas listed in our
+                            portfolio. We offer the best rates available for all direct bookings. Our villa owners
+                            entrusted to us all transactions including contracts and rates negotiation, availability,
+                            and the terms & conditions of the villa.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div style="display: flex; align-items: flex-start; gap: 20px;">
+                    <div style="padding-top: 5px;">
+                        <img src="assets/local_experience.png" alt="Icon"
+                            style="width: 40px; height: 40px; object-fit: contain;">
+                    </div>
+                    <div>
+                        <h3
+                            style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; color: #000000; letter-spacing: 1px; font-size: 1.3rem;">
+                            100% Secure Booking</h3>
+                        <p
+                            style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444; font-size: 0.95rem;">
+                            Take comfort and peace of mind in your booking experience. We offer an optional booking
+                            insurance that covers up to US$20,000. Every aspect of the booking procedure has been
+                            carefully attended to, with care for your experience and finances firmly in mind.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div style="display: flex; align-items: flex-start; gap: 20px;">
+                    <div style="padding-top: 5px;">
+                        <img src="assets/local_experience.png" alt="Icon"
+                            style="width: 40px; height: 40px; object-fit: contain;">
+                    </div>
+                    <div>
+                        <h3
+                            style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; color: #000000; letter-spacing: 1px; font-size: 1.3rem;">
+                            Personalized Concierge</h3>
+                        <p
+                            style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444; font-size: 0.95rem;">
+                            Maybe you need a car, a tour guide, or a yacht to charter? Perhaps a relaxing whole body
+                            massage poolside, tickets to the best show in town, or a private yoga and pilates session,
+                            no request is too big or too small for our dedicated, personalized concierge service which
+                            is included in every villa.
+                        </p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div style="display: flex; align-items: flex-start; gap: 20px;">
+                    <div style="padding-top: 5px;">
+                        <img src="assets/local_experience.png" alt="Icon"
+                            style="width: 40px; height: 40px; object-fit: contain;">
+                    </div>
+                    <div>
+                        <h3
+                            style="font-family: 'Playfair Display', serif; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; color: #000000; letter-spacing: 1px; font-size: 1.3rem;">
+                            Speedy Response</h3>
+                        <p
+                            style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.8; color: #444444; font-size: 0.95rem;">
+                            We take great pride in our customer service. If you want to make a reservation, or just have
+                            some questions, our dedicated Villa Specialists, and Luxury Travel Experts are available
+                            24/7 to respond swiftly and ensure you receive the assistance you need.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html"><img src="assets/Luxury_Villa_Hub_Logo.png" alt="Logo" class="footer-logo"></a>
+                <p>Luxury Villa Hub offers premium villa experiences tailored for those who appreciate the finest things
+                    in life. Unwind in absolute luxury.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="property_listings.html">Property Listings</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-phone"></i> +91 81080 48808</p>
+                <p><i class="fa-solid fa-envelope"></i> hello@luxuryvillahub.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Thane West, Mumbai</p>
+            </div>
+            <div class="footer-col social-col">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <p>&copy; 2026 Luxury Villa Hub. All Rights Reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- Fixed Side Buttons for Call & WhatsApp -->
+    <div class="fixed-side-actions">
+        <!-- Assuming Call.png might not exist, I added a fallback icon -->
+        <a href="tel:+918108048808" class="side-btn call-btn" title="Call Us">
+            <img src="assets/Call.png" alt="Call"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fa-solid fa-phone fallback-side-icon" style="display:none;"></i>
+        </a>
+        <a href="https://wa.me/918108048808" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i
+            class="fa-solid fa-chevron-up"></i></button>
+
+</body>
+
+</html>

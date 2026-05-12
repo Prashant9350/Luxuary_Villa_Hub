@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Luxury Villa Hub</title>
+    <!-- Google Fonts for typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FontAwesome for fallback icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Specific Styles for Contact Us Page */
+        :root {
+            --soft-grey: #F4F4F4;
+            --accent-black: #000000;
+            --pure-white: #FFFFFF;
+            --error-red: #D32F2F;
+        }
+
+        /* Section 1: Hero Header */
+        .contact-hero {
+            height: 40vh;
+            min-height: 300px;
+            background: url('assets/Contact_Us.png') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--pure-white);
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Blurred coastal view aesthetic overlay */
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        /* Section 2: Contact Methods Grid */
+        .contact-methods {
+            padding: 50px 0;
+            background-color: var(--pure-white);
+        }
+
+        .methods-grid {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .method-card {
+            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--pure-white);
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .method-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .method-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .method-content {
+            position: relative;
+            z-index: 3;
+            padding: 20px;
+        }
+
+        .method-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .method-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Section 3: Inquiry Form */
+        .inquiry-section {
+            padding: 60px 0;
+            background-color: var(--pure-white);
+        }
+
+        .form-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--accent-black);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 15px;
+            border: none;
+            background-color: var(--soft-grey);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            border-radius: 4px;
+            outline: none;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                padding: 30px 0;
+            }
+            
+            .method-card {
+                height: 300px;
+            }
+        }
+
+        .form-group textarea {
+            resize: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background-color: #EBEBEB;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-black);
+            color: var(--pure-white);
+            padding: 18px;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--pure-white);
+            padding: 50px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.4s ease;
+        }
+
+        .modal-content.error-content {
+            border: 2px solid var(--error-red);
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .close-modal {
+            background: var(--accent-black);
+            color: var(--pure-white);
+            padding: 12px 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .method-card {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECTION 1: Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <div class="logo-col">
+                <a href="index.html"><img src="assets/Luxury_Villa_Hub_Logo.png" alt="Luxury Villa Hub Logo"
+                        class="site-logo"></a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="property_listings.html">Property Listings</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html" class="active">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="action-col">
+                <div class="nav-dropdown">
+                    <button class="btn-solid-gold hidden-mobile fw-bold">Get in Touch <i
+                            class="fa-solid fa-chevron-down" style="font-size:12px; margin-left:5px;"></i></button>
+                    <div class="nav-dropdown-content">
+                        <a href="tel:+918108048808"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>
+                            Call</br>+91 81080 48808</a>
+                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                                style="margin-right:8px; color:#25D366;"></i> WhatsApp</a>
+                    </div>
+                </div>
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="property_listings.html">Property Listings</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+                <li class="mobile-dropdown-wrapper">
+                    <button class="btn-solid-gold fw-bold" id="mobileGetInTouch"
+                        style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;">Get
+                        in Touch <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="mobile-dropdown-content" id="mobileContactDropdown">
+                        <a href="tel:+918108048808"><i class="fa-solid fa-phone"></i> Call: +91 81080 48808</a>
+                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                                style="color:#25D366;"></i> WhatsApp</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Section 1: Hero Header -->
+    <section class="contact-hero">
+        <div class="hero-text">
+            <h1>Contact Us</h1>
+            <p>Get In Touch</p>
+        </div>
+    </section>
+
+    <!-- Section 2: Contact Methods Grid -->
+    <section class="contact-methods">
+        <div class="methods-grid">
+            <a href="tel:+918108048808" class="method-card">
+                <img src="assets/call-us.jpeg" alt="Call Us"
+                    onerror="this.src='https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=800'">
+                <div class="method-overlay"></div>
+                <div class="method-content">
+                    <h2>Call Us</h2>
+                    <p>+91 81080 48808</p>
+                </div>
+            </a>
+            <a href="mailto:hello@luxuryvillahub.com" class="method-card">
+                <img src="assets/email-us.jpeg" alt="Email Us"
+                    onerror="this.src='https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=800'">
+                <div class="method-overlay"></div>
+                <div class="method-content">
+                    <h2>EMAIL US</h2>
+                    <p>hello@luxuryvillahub.com</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section 3: Inquiry Form -->
+    <section class="inquiry-section">
+        <div class="form-container">
+            <form id="inquiryForm" class="inquiry-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Contact Number</label>
+                        <input type="tel" id="phone" placeholder="10-digit number" pattern="[0-9]{10}" required
+                            title="Please enter exactly 10 digits">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Id</label>
+                        <input type="email" id="email" placeholder="name@domain.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin">Check-in</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Check-out</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="villa">Villa Name</label>
+                    <select id="villa" required>
+                        <option value="" disabled selected>Select a villa</option>
+                        <option value="Silken Retreat">Silken Retreat</option>
+                        <option value="Villa Amarasara">Villa Amarasara</option>
+                        <option value="The Azure Retreat">The Azure Retreat</option>
+                        <option value="Serene Meadows">Serene Meadows</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Tell us about your requirements..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Modal Popups -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content" id="modalContent">
+            <h2 id="modalTitle"></h2>
+            <p id="modalMessage"></p>
+            <button class="close-modal" id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html"><img src="assets/Luxury_Villa_Hub_Logo.png" alt="Logo" class="footer-logo"></a>
+                <p>Luxury Villa Hub offers premium villa experiences tailored for those who appreciate the finest things
+                    in life. Unwind in absolute luxury.</p>
+            </div>
+            <div class="footer-col links-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="property_listings.html">Property Listings</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="contact_us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-phone"></i> +91 81080 48808</p>
+                <p><i class="fa-solid fa-envelope"></i> hello@luxuryvillahub.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Thane West, Mumbai</p>
+            </div>
+            <div class="footer-col social-col">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container flex-between">
+                <p>&copy; 2026 Luxury Villa Hub. All Rights Reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Side Buttons for Call & WhatsApp -->
+    <div class="fixed-side-actions">
+        <a href="tel:+918108048808" class="side-btn call-btn" title="Call Us">
+            <img src="assets/Call.png" alt="Call"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fa-solid fa-phone fallback-side-icon" style="display:none;"></i>
+        </a>
+        <a href="https://wa.me/918108048808" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-top-btn" aria-label="Scroll to top"><i
+            class="fa-solid fa-chevron-up"></i></button>
+
+    <script src="js/main.js"></script>
+    <script>
+        const form = document.getElementById('inquiryForm');
+        const modal = document.getElementById('resultModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModal = document.getElementById('closeModal');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const villa = document.getElementById('villa').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            let errors = [];
+            if (!name || !phone || !email || !checkin || !checkout || !villa || !message) {
+                errors.push("Please fill in all fields.");
+            }
+
+            const phoneRegex = /^[0-9]{10}$/;
+            if (phone && !phoneRegex.test(phone)) {
+                errors.push("Phone number must be exactly 10 digits.");
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email && !emailRegex.test(email)) {
+                errors.push("Please enter a valid email address.");
+            }
+
+            if (errors.length > 0) {
+                showModal("Error", errors.join("<br>"), true);
+            } else {
+                showModal("Thank You!", "Thank you! Our team member will get back to you at the earliest.", false);
+                form.reset();
+            }
+        });
+
+        function showModal(title, message, isError) {
+            modalTitle.innerText = title;
+            modalMessage.innerHTML = message;
+
+            if (isError) {
+                modalContent.classList.add('error-content');
+            } else {
+                modalContent.classList.remove('error-content');
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

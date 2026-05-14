@@ -234,13 +234,11 @@
 
         .sticky-nav ul {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            width: 100%;
+            gap: 30px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         .sticky-nav ul::-webkit-scrollbar {
@@ -549,24 +547,6 @@
         }
 
         @media (max-width: 768px) {
-            .sticky-nav {
-                top: 70px;
-                padding: 10px 0;
-            }
-
-            .sticky-nav ul {
-                overflow-x: auto;
-                white-space: nowrap;
-                justify-content: flex-start;
-                gap: 20px;
-                padding-bottom: 5px;
-            }
-
-            .sticky-nav a {
-                padding-bottom: 8px;
-                font-size: 0.85rem;
-            }
-
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
@@ -897,7 +877,7 @@
             </div>
             <div class="footer-col contact-col">
                 <h3>Contact Info</h3>
-                <p><i class="fa-solid fa-phone"></i> +91 81080 48808</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
                 <p><i class="fa-solid fa-envelope"></i> hello@luxuryvillahub.com</p>
                 <p><i class="fa-solid fa-location-dot"></i> Thane West, Mumbai</p>
             </div>

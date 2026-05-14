@@ -996,154 +996,123 @@ img {
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
-@media (max-width: 1200px) {
-  .container {
-    width: 92%;
-  }
-}
-
 @media (max-width: 1024px) {
-  .hero-title {
-    font-size: 3.2rem;
-  }
-  
   .feature-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .six-features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .trust-factors-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .masonry-grid-4 {
+
+  .footer-grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-  
-  .left-tall, .right-tall, .mid-top, .mid-bottom {
-    grid-column: span 1;
-    grid-row: span 1;
-    height: 350px;
+    gap: 50px;
   }
 }
 
 @media (max-width: 768px) {
-  .desktop-nav, .hidden-mobile {
-    display: none !important;
+  .hero-title {
+    font-size: 2.8rem;
   }
-  
+
+  .trust-factors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-dropdown {
+    display: none;
+  }
+
+  .mobile-dropdown-wrapper {
+    display: block;
+  }
+
+  /* Footer adjustments */
+  .desktop-nav,
+  .hidden-mobile {
+    display: none;
+  }
+
   .hamburger-menu {
     display: block;
   }
-  
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-section {
-    height: 80vh;
-  }
-  
-  .three-features {
-    top: 0;
-    padding: 60px 0;
-  }
-  
-  .feature-grid, .six-features-grid, .trust-factors-grid {
+
+  .feature-grid {
     grid-template-columns: 1fr;
   }
-  
-  .section-header h2 {
-    font-size: 2.2rem;
+
+  .three-features {
+    top: 0;
+    padding-top: 50px;
   }
-  
-  .villa-card {
-    min-width: 100%;
+
+  .six-features-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .collection-card {
-    min-width: 280px;
-    height: 400px;
-  }
-  
+
   .full-width-image {
     height: 40vh;
   }
-  
+
+  .masonry-grid-4 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .masonry-item {
+    height: 250px;
+  }
+
+  .left-tall,
+  .right-tall {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .mid-top,
+  .mid-bottom {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .standard-icons-bar {
-    justify-content: center;
-    gap: 30px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    flex-wrap: nowrap;
+    /* Side scrolling on small screens */
   }
-  
+
   .std-icon-item {
-    width: 110px;
+    min-width: 100px;
   }
-  
+
+  .villa-card {
+    min-width: 300px;
+  }
+
+  .collection-card {
+    min-width: 280px;
+    height: 380px;
+  }
+
+  .slider-wrapper {
+    padding: 0 10px;
+  }
+
+  .slider-arrow {
+    display: none;
+    /* Hide arrows on mobile, rely on swipe */
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
   }
-  
-  .brand-col, .links-col, .contact-col, .social-col {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .social-links {
-    justify-content: center;
-  }
-  
+
   .flex-between {
     flex-direction: column;
     gap: 15px;
     text-align: center;
   }
-}
-
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  
-  .section-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  .logo-col .site-logo {
-    height: 55px;
-  }
-  
-  .site-header.scrolled .site-logo {
-    height: 45px;
-  }
-  
-  .btn-solid-gold, .btn-outline-gold {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-  
-  .feature-card {
-    padding: 30px 20px;
-  }
-  
-  .six-feature-item {
-    padding: 20px;
-  }
-  
-  .six-feature-item .icon {
-    font-size: 20px;
-    margin-right: 15px;
-  }
-}
-
-/* Helper to prevent horizontal scroll */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
 }

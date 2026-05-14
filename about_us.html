@@ -13,30 +13,6 @@
 
     <!-- FontAwesome for fallback icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 40vh !important;
-                min-height: 300px !important;
-            }
-            .hero-title {
-                font-size: 2.5rem !important;
-            }
-            .mission-vision-grid {
-                grid-template-columns: 1fr !important;
-                gap: 30px !important;
-            }
-            .about-intro-section {
-                padding: 30px 20px !important;
-            }
-            .about-intro-section p {
-                font-size: 1rem !important;
-            }
-            .collection-showcase-section h2 {
-                font-size: 1.5rem !important;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -50,9 +26,9 @@
             </div>
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="property_listings.html">Property Listings</a></li>
+                    <li><a href="index.html#property-listings">Property Listings</a></li>
                     <li><a href="about_us.html">About Us</a></li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
+                    <li><a href="index.html#contact-us">Contact Us</a></li>
                 </ul>
             </nav>
             <div class="action-col">
@@ -60,9 +36,9 @@
                     <button class="btn-solid-gold hidden-mobile fw-bold">Get in Touch <i
                             class="fa-solid fa-chevron-down" style="font-size:12px; margin-left:5px;"></i></button>
                     <div class="nav-dropdown-content">
-                        <a href="tel:+918108048808"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>
-                            Call</br>+91 81080 48808</a>
-                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                        <a href="tel:+919082206173"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>
+                            Call</br>+91 90822 06173</a>
+                        <a href="https://wa.me/919082206173" target="_blank"><i class="fa-brands fa-whatsapp"
                                 style="margin-right:8px; color:#25D366;"></i> WhatsApp</a>
                     </div>
                 </div>
@@ -75,16 +51,16 @@
         <!-- Mobile Menu Overlay -->
         <div class="mobile-menu" id="mobileMenu">
             <ul>
-                <li><a href="property_listings.html">Property Listings</a></li>
+                <li><a href="index.html#property-listings">Property Listings</a></li>
                 <li><a href="about_us.html">About Us</a></li>
-                <li><a href="contact_us.html">Contact Us</a></li>
+                <li><a href="index.html#contact-us">Contact Us</a></li>
                 <li class="mobile-dropdown-wrapper">
                     <button class="btn-solid-gold fw-bold" id="mobileGetInTouch"
                         style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;">Get
                         in Touch <i class="fa-solid fa-chevron-down"></i></button>
                     <div class="mobile-dropdown-content" id="mobileContactDropdown">
-                        <a href="tel:+918108048808"><i class="fa-solid fa-phone"></i> Call: +91 81080 48808</a>
-                        <a href="https://wa.me/918108048808" target="_blank"><i class="fa-brands fa-whatsapp"
+                        <a href="tel:+919082206173"><i class="fa-solid fa-phone"></i> Call: +91 90822 06173</a>
+                        <a href="https://wa.me/919082206173" target="_blank"><i class="fa-brands fa-whatsapp"
                                 style="color:#25D366;"></i> WhatsApp</a>
                     </div>
                 </li>
@@ -120,9 +96,10 @@
         </div>
     </section>
 
+    <!-- Section 3: Mission & Vision (2-Column Grid) -->
     <section class="mission-vision-section" style="background-color: #F9F9F9; padding: 50px 20px;">
-        <div class="container mission-vision-grid"
-            style="max-width: 1100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px;">
+        <div class="container"
+            style="max-width: 1100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px;">
             <div class="mission-col"
                 style="background: #FFFFFF; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
                 <h2
@@ -280,14 +257,14 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="property_listings.html">Property Listings</a></li>
+                    <li><a href="index.html#property-listings">Property Listings</a></li>
                     <li><a href="about_us.html">About Us</a></li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
+                    <li><a href="index.html#contact-us">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-col contact-col">
                 <h3>Contact Info</h3>
-                <p><i class="fa-solid fa-phone"></i> +91 81080 48808</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
                 <p><i class="fa-solid fa-envelope"></i> hello@luxuryvillahub.com</p>
                 <p><i class="fa-solid fa-location-dot"></i> Thane West, Mumbai</p>
             </div>
@@ -313,12 +290,12 @@
     <!-- Fixed Side Buttons for Call & WhatsApp -->
     <div class="fixed-side-actions">
         <!-- Assuming Call.png might not exist, I added a fallback icon -->
-        <a href="tel:+918108048808" class="side-btn call-btn" title="Call Us">
+        <a href="tel:+919082206173" class="side-btn call-btn" title="Call Us">
             <img src="assets/Call.png" alt="Call"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <i class="fa-solid fa-phone fallback-side-icon" style="display:none;"></i>
         </a>
-        <a href="https://wa.me/918108048808" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
+        <a href="https://wa.me/919082206173" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>

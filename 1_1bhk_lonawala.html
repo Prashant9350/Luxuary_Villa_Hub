@@ -584,6 +584,176 @@
                 font-size: 2.5rem;
             }
         }
+
+        /* Gallery Overlay & Lightbox */
+        .gallery-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .view-more-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .view-more-overlay:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .view-more-overlay i {
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+
+        /* Fullscreen Lightbox */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 3000;
+            display: none;
+            flex-direction: column;
+            color: white;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-header {
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .lightbox-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        .lightbox-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lightbox-img-container {
+            max-width: 90%;
+            max-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img-container img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            user-select: none;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-footer {
+            padding: 20px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .gallery-left,
+            .gallery-right {
+                height: 300px;
+            }
+
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -644,55 +814,31 @@
         <!-- Interactive Photo Gallery -->
         <section class="gallery-grid">
             <div class="gallery-left">
-                <!-- Fallback to any valid placeholder image from assets since Silken_Retreat might not exist directly, using LVH 68.jpeg as it looks like a nice hero -->
-                <img src="assets/Silken_Retreat/SR_01.jpeg" onerror="this.src='assets/LVH 68.jpeg'"
-                    alt="Silken Retreat Main">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="assets/Silken_Retreat/SR_01.jpeg" onerror="this.src='assets/LVH 68.jpeg'"
+                        alt="Silken Retreat Main">
+                </div>
             </div>
             <div class="gallery-right">
-                <img src="assets/Silken_Retreat/SR_02.jpeg" onerror="this.src='assets/LVH 43.jpeg'"
-                    alt="Silken Retreat Detail 1">
-                <img src="assets/Silken_Retreat/SR_12.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_03.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_04.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_05.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_06.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_07.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_08.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_09.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_10.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_11.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_13.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_14.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_15.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_16.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_17.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_18.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-                <img src="assets/Silken_Retreat/SR_19.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
-                    alt="Silken Retreat Detail 2">
-
-
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="assets/Silken_Retreat/SR_02.jpeg" onerror="this.src='assets/LVH 43.jpeg'"
+                        alt="Silken Retreat Detail 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(11)">
+                    <img src="assets/Silken_Retreat/SR_12.jpeg" onerror="this.src='assets/LVH 42.jpeg'"
+                        alt="Silken Retreat Detail 2">
+                    <div class="view-more-overlay">
+                        <i class="fa-solid fa-images"></i>
+                        <span>View All Photos</span>
+                    </div>
+                </div>
             </div>
             <div class="gallery-actions">
                 <button class="action-btn" title="Share"><i class="fa-solid fa-share-nodes"></i></button>
                 <button class="action-btn" title="Save"><i class="fa-regular fa-heart"></i></button>
             </div>
-            <button class="view-photos-btn"><i class="fa-solid fa-images" style="margin-right:8px;"></i> View
+            <button class="view-photos-btn" onclick="openLightbox(0)"><i class="fa-solid fa-images"
+                    style="margin-right:8px;"></i> View
                 Photos</button>
         </section>
 
@@ -851,6 +997,25 @@
         </div>
     </div>
 
+    <!-- Gallery Lightbox Modal -->
+    <div class="lightbox-modal" id="galleryLightbox">
+        <div class="lightbox-header">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        </div>
+        <div class="lightbox-main">
+            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <div class="lightbox-img-container">
+                <img id="lightboxImg" src="" alt="Gallery Image">
+            </div>
+            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="lightbox-footer">
+            <span id="imageCounter">1 / 19</span>
+        </div>
+    </div>
+
     <!-- Modal Overlay -->
     <div class="modal-overlay" id="rulesModal">
         <div class="modal-content">
@@ -946,6 +1111,80 @@
                 }
             });
         });
+
+        // Lightbox Gallery Logic
+        const galleryImages = [];
+        const totalImages = 19;
+        // In this folder, images are SR_01 to SR_19
+        for (let i = 1; i <= totalImages; i++) {
+            const imgNum = i.toString().padStart(2, '0');
+            galleryImages.push(`assets/Silken_Retreat/SR_${imgNum}.jpeg`);
+        }
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightboxImage();
+            document.getElementById('galleryLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('galleryLightbox').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function changeImage(step) {
+            currentImageIndex += step;
+            if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            }
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            const imgElement = document.getElementById('lightboxImg');
+            const counterElement = document.getElementById('imageCounter');
+            imgElement.src = galleryImages[currentImageIndex];
+            counterElement.innerText = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // Close lightbox on click outside image
+        document.getElementById('galleryLightbox').addEventListener('click', function (e) {
+            if (e.target.classList.contains('lightbox-main') || e.target.classList.contains('lightbox-img-container')) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (!document.getElementById('galleryLightbox').classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
+        });
+
+        // Mobile swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.getElementById('galleryLightbox').addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.getElementById('galleryLightbox').addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) changeImage(1);
+            if (touchEndX > touchStartX + 50) changeImage(-1);
+        }
 
         // Modal functionality
         function openModal(title, bodyHtml) {

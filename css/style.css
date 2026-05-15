@@ -368,7 +368,7 @@ img {
 
 /* SECTION 1 (Part 3): 3 Feature Columns */
 .three-features {
-  padding: 50px 0;
+  padding: 40px 0;
   background-color: var(--light-bg);
   position: relative;
   top: -40px;
@@ -426,7 +426,7 @@ img {
 
 /* SECTION 2: Image + 6 Features */
 .image-features-section {
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .full-width-image {
@@ -477,7 +477,7 @@ img {
 /* Common Section Header */
 .section-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .section-header h2 {
@@ -557,7 +557,7 @@ img {
 
 /* SECTION 3: Villas in Focus */
 .villas-slider-section {
-  padding: 50px 0;
+  padding: 40px 0;
   background-color: #fff;
 }
 
@@ -623,7 +623,7 @@ img {
 
 /* SECTION 4: Stay Standard */
 .stay-standard-section {
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .masonry-grid-4 {
@@ -720,7 +720,7 @@ img {
 
 /* SECTION 5: Choose a Collection Slider */
 .collection-section {
-  padding: 50px 0;
+  padding: 40px 0;
   background-color: #2F3538; /* Trending Luxury Subdued Slate/Taupe */
   color: white;
 }
@@ -767,7 +767,7 @@ img {
 
 /* SECTION 6: Trusted Partners (Now Trust Factors) */
 .trusted-partners-section {
-  padding: 50px 0;
+  padding: 40px 0;
   background-color: #fff;
 }
 
@@ -822,7 +822,7 @@ img {
 .site-footer {
   background-color: var(--dark-bg);
   color: var(--text-light);
-  padding: 50px 0 0;
+  padding: 40px 0 0;
 }
 
 .footer-grid {
@@ -997,9 +997,24 @@ img {
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 1200px) {
+  .container, .header-container {
+    width: 95%;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
+
 @media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
   .feature-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
   .six-features-grid {
@@ -1007,18 +1022,35 @@ img {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .villa-card {
+    min-width: 350px;
   }
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    padding: 15px 0;
+  }
+  
+  .logo-col .site-logo {
+    height: 60px;
+  }
+
+  .hero-section {
+    height: 70vh;
+  }
+
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 
   .trust-factors-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .nav-dropdown {
@@ -1029,7 +1061,6 @@ img {
     display: block;
   }
 
-  /* Footer adjustments */
   .desktop-nav,
   .hidden-mobile {
     display: none;
@@ -1045,7 +1076,7 @@ img {
 
   .three-features {
     top: 0;
-    padding-top: 50px;
+    padding-top: 40px;
   }
 
   .six-features-grid {
@@ -1059,6 +1090,7 @@ img {
   .masonry-grid-4 {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    gap: 15px;
   }
 
   .masonry-item {
@@ -1066,11 +1098,7 @@ img {
   }
 
   .left-tall,
-  .right-tall {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
+  .right-tall,
   .mid-top,
   .mid-bottom {
     grid-column: auto;
@@ -1078,42 +1106,82 @@ img {
   }
 
   .standard-icons-bar {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    flex-wrap: nowrap;
-    /* Side scrolling on small screens */
+    justify-content: center;
+    gap: 20px;
   }
 
   .std-icon-item {
-    min-width: 100px;
+    width: 100px;
   }
 
   .villa-card {
-    min-width: 300px;
+    min-width: 280px;
   }
 
   .collection-card {
-    min-width: 280px;
-    height: 380px;
+    min-width: 260px;
+    height: 350px;
   }
 
   .slider-wrapper {
-    padding: 0 10px;
+    padding: 0 15px;
   }
 
   .slider-arrow {
     display: none;
-    /* Hide arrows on mobile, rely on swipe */
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .brand-col, .footer-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-links {
+    justify-content: center;
   }
 
   .flex-between {
     flex-direction: column;
     gap: 15px;
     text-align: center;
+  }
+  
+  .fixed-side-actions {
+    left: 15px;
+    bottom: 20px;
+  }
+  
+  .scroll-top-btn {
+    right: 15px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .villa-card {
+    min-width: 100%;
+  }
+  
+  .collection-card {
+    min-width: 100%;
+  }
+  
+  .footer-logo {
+    height: 60px;
   }
 }

@@ -229,7 +229,7 @@
             z-index: 100;
             border-bottom: 1px solid #eee;
             padding: 15px 0 0;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
         .sticky-nav ul {
@@ -269,8 +269,8 @@
         }
 
         .content-section {
-            margin-bottom: 50px;
-            padding-bottom: 50px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
             border-bottom: 1px solid #eee;
             scroll-margin-top: 150px;
         }
@@ -278,7 +278,7 @@
         .content-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #333;
         }
 
@@ -582,6 +582,30 @@
             .laurel-right {
                 right: -40px;
                 font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reviews-score {
+                font-size: 3.5rem;
+            }
+            
+            .laurel-left {
+                left: -30px;
+                font-size: 2rem;
+            }
+            
+            .laurel-right {
+                right: -30px;
+                font-size: 2rem;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-nav {
+                top: 70px;
             }
         }
 
@@ -1011,7 +1035,7 @@
             <!-- Booking Sidebar -->
             <div class="property-sidebar">
                 <div class="booking-widget">
-                    <div class="booking-price">₹12,000 <span>/ weekdays</span><br>₹25,000 <span>/ weekends</span></div>
+                    <!--<div class="booking-price">₹12,000 <span>/ weekdays</span><br>₹25,000 <span>/ weekends</span></div>-->
                     <form class="booking-form">
                         <div class="form-group">
                             <input type="text" placeholder="Check-in - Check-out" onfocus="(this.type='date')"

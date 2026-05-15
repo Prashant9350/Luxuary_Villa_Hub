@@ -86,7 +86,7 @@
 
         /* Section 2: Villa Listing Grid */
         .listing-grid-section {
-            padding: 60px 0;
+            padding: 40px 0;
             background-color: var(--pure-white);
         }
 
@@ -96,14 +96,14 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 60px;
+            gap: 40px;
         }
 
         .listing-card {
             display: flex;
             background: var(--pure-white);
             border-bottom: 1px solid var(--divider-grey);
-            padding-bottom: 60px;
+            padding-bottom: 40px;
             gap: 40px;
         }
 
@@ -245,7 +245,7 @@
 
         /* Section 3: Testimonial Carousel */
         .transparency-section {
-            padding: 60px 0;
+            padding: 40px 0;
             background-color: var(--pure-white);
             position: relative;
         }
@@ -393,6 +393,24 @@
             .trust-badges {
                 flex-direction: column;
                 gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 1.8rem;
+            }
+            
+            .listing-container {
+                gap: 30px;
+            }
+            
+            .listing-info-col {
+                padding: 0;
+            }
+            
+            .trust-badges {
+                gap: 10px;
             }
         }
     </style>

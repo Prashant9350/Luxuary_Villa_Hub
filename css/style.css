@@ -694,14 +694,15 @@ img {
   align-items: center;
   text-align: center;
   width: 120px;
+  flex-shrink: 0;
 }
 
 .std-icon-item img {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   object-fit: contain;
   margin-bottom: 15px;
-  padding: 15px;
+  padding: 12px;
   background-color: var(--peach-highlight);
   border-radius: 50%;
   transition: var(--transition-fast);

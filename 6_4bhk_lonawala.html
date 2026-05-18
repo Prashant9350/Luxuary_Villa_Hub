@@ -547,67 +547,189 @@
         }
 
         @media (max-width: 768px) {
+
+            /* HAMBURGER & HEADER ALIGNMENT */
+            .site-header {
+                padding: 10px 0 !important;
+            }
+
+            .site-header .hamburger-menu {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                width: 40px;
+                font-size: 1.5rem;
+                color: var(--text-dark) !important;
+                cursor: pointer;
+                border: none;
+                background: none;
+            }
+
+            /* PROFESSIONAL IMAGE RATIOS & GALLERY ALIGNMENT */
             .gallery-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+                border-radius: 8px !important;
+                margin-top: 15px !important;
             }
 
-            .gallery-left,
+            .gallery-left {
+                height: 280px !important;
+            }
+
             .gallery-right {
-                height: 250px;
+                grid-template-columns: 1fr 1fr !important;
+                grid-template-rows: 1fr !important;
+                height: 140px !important;
+                gap: 8px !important;
             }
 
-            .gallery-right {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr;
+            .view-photos-btn {
+                bottom: 15px !important;
+                right: 15px !important;
+                padding: 8px 16px !important;
+                font-size: 0.85rem !important;
+                border-radius: 4px !important;
             }
 
+            /* PROFESSIONAL STICKY-NAV ALIGNMENT (BLUR & SCREEN-EDGE BREAKOUT) */
+            .sticky-nav {
+                position: sticky !important;
+                top: 80px !important;
+                background: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(8px) !important;
+                -webkit-backdrop-filter: blur(8px) !important;
+                z-index: 99 !important;
+                border-bottom: 1px solid #eee !important;
+                margin-bottom: 25px !important;
+                padding: 12px 0 0 !important;
+                margin-left: -5% !important;
+                margin-right: -5% !important;
+                padding-left: 5% !important;
+                padding-right: 5% !important;
+            }
+
+            .sticky-nav ul {
+                display: flex !important;
+                gap: 20px !important;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                padding-bottom: 8px !important;
+                -ms-overflow-style: none !important;
+                scrollbar-width: none !important;
+            }
+
+            .sticky-nav ul::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .sticky-nav a {
+                font-size: 0.9rem !important;
+                padding-bottom: 8px !important;
+            }
+
+            /* LAYOUT & PARAGRAPH CONTENT ALIGNMENT */
             .property-layout {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
             }
 
+            .prop-title {
+                font-size: 1.8rem !important;
+                line-height: 1.3 !important;
+                margin-bottom: 10px !important;
+            }
+
+            .content-title {
+                font-size: 1.4rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            .content-text {
+                text-align: justify !important;
+                text-justify: inter-word !important;
+                font-size: 0.95rem !important;
+                line-height: 1.7 !important;
+                color: #555 !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* SIDEBAR / BOOKING WIDGET */
+            .booking-widget {
+                position: relative !important;
+                top: auto !important;
+                padding: 20px !important;
+                margin-top: 10px !important;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+            }
+
+            /* HOUSE RULES GRID */
             .rules-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
             }
 
+            .rule-btn {
+                padding: 15px 20px !important;
+                font-size: 0.95rem !important;
+            }
+
+            /* REVIEWS */
             .reviews-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 30px !important;
+            }
+
+            .reviews-score {
+                font-size: 4rem !important;
             }
 
             .laurel-left {
-                left: -40px;
-                font-size: 2.5rem;
+                left: -45px !important;
+                font-size: 2.2rem !important;
             }
 
             .laurel-right {
-                right: -40px;
-                font-size: 2.5rem;
+                right: -45px !important;
+                font-size: 2.2rem !important;
             }
         }
 
         @media (max-width: 480px) {
             .reviews-score {
-                font-size: 3.5rem;
+                font-size: 3rem !important;
             }
-            
+
             .laurel-left {
-                left: -30px;
-                font-size: 2rem;
+                left: -35px !important;
+                font-size: 1.8rem !important;
             }
-            
+
             .laurel-right {
-                right: -30px;
-                font-size: 2rem;
+                right: -35px !important;
+                font-size: 1.8rem !important;
             }
-            
+
             .reviews-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
-            
+
             .sticky-nav {
-                top: 70px;
+                top: 80px !important;
+                /* Keep aligned exactly under fixed header */
+            }
+
+            .gallery-left {
+                height: 220px !important;
+            }
+
+            .gallery-right {
+                height: 110px !important;
             }
         }
+
 
         /* Gallery Overlay & Lightbox */
         .gallery-item {
@@ -1044,7 +1166,7 @@
                         <div class="form-group">
                             <input type="number" placeholder="Guests" min="1">
                         </div>
-                        <a href="https://wa.me/919082206173" target="_blank">
+                        <a href="https://wa.me/8108048808" target="_blank">
                             <button type="button" class="booking-btn">Check Availability</button>
                         </a>
                     </form>
@@ -1103,7 +1225,7 @@
             <div class="footer-col contact-col">
                 <h3>Contact Info</h3>
                 <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fa-solid fa-envelope"></i> hello@luxuryvillahub.com</p>
+                <p><i class="fa-solid fa-envelope"></i> umeshtikone35@gmail.com</p>
                 <p><i class="fa-solid fa-location-dot"></i> Thane West, Mumbai</p>
             </div>
             <div class="footer-col social-col">
@@ -1262,12 +1384,12 @@
 
     <!-- Fixed Side Buttons for Call & WhatsApp -->
     <div class="fixed-side-actions">
-        <a href="tel:+919082206173" class="side-btn call-btn" title="Call Us">
+        <a href="tel:+918108048808" class="side-btn call-btn" title="Call Us">
             <img src="assets/Call.png" alt="Call"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <i class="fa-solid fa-phone fallback-side-icon" style="display:none;"></i>
         </a>
-        <a href="https://wa.me/919082206173" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
+        <a href="https://wa.me/8108048808" class="side-btn whatsapp-btn" target="_blank" title="WhatsApp Us">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
